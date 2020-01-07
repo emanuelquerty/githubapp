@@ -1,6 +1,6 @@
 # githubapp
 
-- An app that uses the github api for displaying all github users (name and avatar)
+- A simple app that uses the github api for displaying all github users (name and avatar)
 
 - Clicking on a user, shows the user profile with avatar, name, username, followers and repos
 
