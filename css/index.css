@@ -77,6 +77,7 @@ body {
   z-index: 999; /* Side bar always on top of everything when visible*/
 }
 
+/* Wrapper is for centering all content inside side-navbar */
 .side-navbar__wrapper {
   margin: 0 auto;
   width: 90%;
@@ -108,16 +109,18 @@ body {
   background-color: #eceff1;
 }
 
-/* Class to slide a element from left */
+/* Class to slide an element from left */
 .slide-from-left {
   transform: translateX(0%);
 }
 
+/* Remove outline from input and change its border-bottom color to darker on focus */
 #side-navbar__search-input:focus {
   outline: none;
   border-bottom: 2px solid #263238;
 }
 
+/* Class for darkening the UI when sidenav is visible*/
 .side-navbar__big-shadow_onVisible {
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
@@ -160,7 +163,7 @@ body {
 }
 .user-container .avatar-and-name-container__avatar {
   width: 5rem;
-  border-radius: 50%;
+  border-radius: 50%; /* Round small avatar images look cool*/
 }
 
 /******************* Media Queries start here *********************/
