@@ -1,0 +1,102 @@
+.main__user-info-table {
+  font-size: 1.4rem;
+  width: 50rem;
+  border-top: 1px solid #c8d0d4;
+  border-bottom: 2px solid #eceff1;
+  border-collapse: collapse;
+}
+
+.main__user-fullname {
+  font-weight: bold;
+}
+
+.main__user-fullname {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.main .prev-next-container {
+  width: 100%;
+  margin-top: 4rem;
+}
+
+.main-inner-wrapper {
+  width: 35rem;
+}
+
+.main-nav {
+  border-bottom: 1.4px solid #d3d5d6;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+
+.main-nav__followers,
+.main-nav__repos {
+  text-decoration: none;
+  color: #263238;
+  font-size: 1.4rem;
+  padding: 2rem 2rem 2rem 0;
+  border-bottom: 1.4px solid #d3d5d6;
+  transition: border 0.4s;
+}
+
+.main-nav__followers:hover,
+.main-nav__repos:hover {
+  font-weight: bold;
+  border-bottom: 2px solid #263238;
+}
+
+.main-nav__link--active {
+  font-weight: bold;
+  border-bottom: 2px solid #263238;
+}
+
+.follower-box {
+  padding: 0.6rem;
+  border-top: 1.4px solid #d3d5d6;
+  display: flex;
+  align-items: center;
+}
+
+.follower-avatar-image {
+  width: 5rem;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.follower-name {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 702px) {
+  .main {
+    padding: 3rem 0 3rem 4rem;
+  }
+}
+
+@media screen and (max-width: 595px) {
+  .main .prev-next-container {
+    margin: 4rem 0 2rem 0;
+  }
+}
+
+@media screen and (max-width: 422px) {
+  .main {
+    padding: 3rem 0;
+  }
+  .main__user-info-table,
+  .main-inner-wrapper {
+    width: 100%;
+  }
+
+  .main-inner-wrapper,
+  .main .prev-next-container {
+    width: 94%;
+    margin: 0 auto;
+  }
+
+  .main .prev-next-container {
+    margin: 4rem 0 2rem 0;
+  }
+}

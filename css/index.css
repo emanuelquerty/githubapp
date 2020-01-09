@@ -51,6 +51,7 @@ body {
   color: #eceff1;
   text-decoration: none;
   font-size: 1.4rem; /* 1.4rem = 14px as 1rem = 10px */
+  font-weight: bold;
 }
 
 .top-nav__span-text {
@@ -90,9 +91,9 @@ body {
 
 .side-navbar__close-icon {
   position: absolute;
-  top: 1.4rem;
+  top: 1.2rem;
   right: 2rem;
-  font-size: 3rem;
+  font-size: 2rem;
   cursor: pointer;
 }
 
@@ -121,7 +122,7 @@ body {
 }
 
 /* Class for darkening the UI when sidenav is visible*/
-.side-navbar__big-shadow_onVisible {
+.side-navbar__big-shadow--onVisible {
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   top: 0;
@@ -143,27 +144,70 @@ body {
   margin-bottom: 3rem;
 }
 
+.main .prev-next-container {
+  width: 40rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.prev-next-container__prev-btn,
+.prev-next-container__next-btn {
+  text-decoration: none;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #45555e;
+  font-size: 1.4rem;
+  padding: 0.9rem;
+  border-radius: 0.3rem;
+  margin: 0 1rem;
+  transition: all 0.4s;
+}
+
+.prev-next-container__prev-btn:hover,
+.prev-next-container__next-btn:hover {
+  background-color: #263238;
+}
+
 .user-container {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   width: 40rem;
   border-top: 1.5px solid #eceff1;
-  /* border-bottom: 1.5px solid #eceff1; */
-  padding: 1rem;
+  padding: 0.6rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-weight: bold;
+}
+
+.user-container__more-info {
+  text-decoration: none;
+  background-color: #eceff1;
+  color: #263238;
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+  transition: all 0.4s;
+}
+
+.user-container__more-info:hover {
+  background-color: #c9d5dd;
 }
 
 .avatar-and-name-container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 46%;
+  width: 40%;
   padding: 0 1rem;
 }
+
 .user-container .avatar-and-name-container__avatar {
   width: 5rem;
   border-radius: 50%; /* Round small avatar images look cool*/
+  margin-right: 1rem;
+}
+
+.page-numbers {
+  font-weight: bold;
+  font-size: 1.4rem;
 }
 
 /******************* Media Queries start here *********************/
@@ -177,12 +221,11 @@ body {
   }
 
   .main .user-container {
-    width: 90%;
-    margin: 0 auto;
+    margin: 0 4rem;
   }
 
-  .main .avatar-and-name-container {
-    width: 18rem;
+  .main .prev-next-container {
+    margin: 2rem 4rem;
   }
 }
 
@@ -199,19 +242,20 @@ body {
   .top-nav__span-text {
     display: none;
   }
-}
-
-@media screen and (max-width: 367px) {
-  .main .avatar-and-name-container {
-    width: 60%;
-  }
 
   .main__heading-1,
-  .main .user-container {
+  .main .user-container,
+  .main .prev-next-container {
     width: 94%;
+    margin: 0 auto;
   }
 
-  .user-container .avatar-and-name-container__avatar {
-    margin-right: 1rem;
+  .main__heading-1 {
+    margin-bottom: 3rem;
+  }
+
+  .main .prev-next-container {
+    width: 94%;
+    margin: 3rem auto 1rem auto;
   }
 }

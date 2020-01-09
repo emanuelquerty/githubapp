@@ -15,6 +15,7 @@
 
     <!-- Local CSS -->
     <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/user-info.css" />
 </head>
 
 <body>
@@ -48,32 +49,53 @@
     </header>
 
     <main class="main">
-        <h1 class="main__heading-1">All Users</h1>
-
-        <div class="pages-container">
-            <!-- template for each user to be displayed -->
-            <template>
-                <div class="user-container">
-                    <div class="avatar-and-name-container">
-                        <img class="avatar-and-name-container__avatar" src="https://picsum.photos/80"
-                            alt="user avatar" />
-                        <p class="avatar-and-name-container__name">Emanuel Inacio</p>
+        <div class="main-inner-wrapper">
+            <h1 class="main__user-fullname">Emanuel Inacio</h1>
+            <nav class="main-nav">
+                <a href="" class="main-nav__followers">followers <span class="followers-count"></span></a>
+                <a href="" class="main-nav__repos">Repositories <span class="repos-count"></span></a>
+            </nav>
+            <div class="followers-page">
+                <div class="page1"></div>
+                <template>
+                    <div class="followers-container">
+                        <div class="follower-box">
+                            <img src="https://picsum.photos/200" alt="" class="follower-avatar-image">
+                            <p class="follower-name">John Doe</p>
+                        </div>
                     </div>
-                    <a href="#" class="user-container__more-info">More info</a>
+                </template>
+                <div class="prev-next-container">
+                    <a href="#" class="prev-next-container__prev-btn">Previous</a>
+                    <span class="page-numbers">
+                        Page <span class="current-page">1</span>
+                    </span>
+                    <a href="#" class="prev-next-container__next-btn">Next</a>
                 </div>
-            </template>
-
-            <!-- This is for pagination. We change the content of this page -->
-            <!-- every time we hit previous or next -->
-            <div class="page"></div>
-            <div class="prev-next-container">
-                <a href="#" class="prev-next-container__prev-btn">Previous</a>
-                <span class="page-numbers">
-                    Page <span class="current-page">1</span>
-                </span>
-                <a href="#" class="prev-next-container__next-btn">Next</a>
             </div>
+
+            <!-- <div class="repos-page">
+                <div class="page2"></div>
+                <template>
+                    <div class="repos-container">
+                        <div class="repo-box">
+                            <img src="https://picsum.photos/200" alt="" class="follower-avatar-image">
+                            <p class="follower-name">John Doe</p>
+                        </div>
+                    </div>
+                </template>
+                <div class="prev-next-container">
+                    <a href="#" class="prev-next-container__prev-btn">Previous</a>
+                    <span class="page-numbers">
+                        Page <span class="current-page">1</span>
+                    </span>
+                    <a href="#" class="prev-next-container__next-btn">Next</a>
+                </div>
+            </div> -->
+
+
         </div>
+
     </main>
 
     <!-- jQuery CDN -->
@@ -81,9 +103,9 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
     <!-- Local JS files -->
-    <script src="./js/utilities/pagination.js"></script>
     <script src="./js/index.js"></script>
-    <script src="./js/users.js"></script>
+    <script src="./js/user-info.js"></script>
+    <script src="./js/utilities/pagination.js"></script>
 </body>
 
 </html>
