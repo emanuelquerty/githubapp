@@ -37,7 +37,6 @@ $(".search-user-btn").click(function(event) {
     let data = getData(`https://api.github.com/users/${searchQuery}`);
     data.then(res => {
       // If no results, show no results
-      console.log(res);
       if (res.message == "Not Found") {
         displayUserNotFound();
       } else {
