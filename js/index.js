@@ -43,7 +43,6 @@ $(".search-user-btn").click(function(event) {
       } else {
         displayUserFound(res.avatar_url, res.login);
       }
-      console.log(res);
     });
   } else {
     // Here we search from the pages we've fetched so far
