@@ -38,7 +38,7 @@ $(".search-user-btn").click(function(event) {
     data.then(res => {
       // If no results, show no results
       if (res.message == "Not Found") {
-        displayNoUserFound();
+        displayUserNotFound();
       } else {
         displayUserFound(res.avatar_url, res.login);
       }
