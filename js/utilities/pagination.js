@@ -11,6 +11,7 @@ class Pagination {
     this.urls = [];
     this.pageNumber = 0;
     this.lastPage = false;
+    this.data = [];
   }
 
   getNextData() {
@@ -24,8 +25,9 @@ class Pagination {
       }
 
       let response = await res.json();
-      console.log(response);
+      this.data = this.data.concat(response);
 
+      // console.log(response);
       // If no followers of repos, return a promise with empty array
       if (response.length == 0) {
         let promise = new Promise(function(resolve, reject) {

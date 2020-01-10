@@ -38,31 +38,50 @@ $(".search-user-btn").click(function(event) {
     data.then(res => {
       // If no results, show no results
       if (res.message == "Not Found") {
-        // Clearn search results
-        $(".side-navbar__results").html("");
-        $(".side-navbar__results").html(
-          `<p class="not-found-result"> No user with given username found</p>`
-        );
+        displayNoUserFound();
       } else {
-        let userContainer = populateUserContainerNode(
-          res.avatar_url,
-          res.login
-        );
-        // Clearn search results and append the results
-        $(".side-navbar__results").html("");
-        $(".side-navbar__results").append(userContainer);
-
-        // Show a new page with users followers and repos
-        let username = "";
-        $(".user-container__more-info").click(event => {
-          username = event.target.id;
-          window.location.href = `./user-info.html?username=${username}`;
-        });
+        displayUserFound(res.avatar_url, res.login);
       }
       console.log(res);
     });
+  } else {
+    // Here we search from the pages we've fetched so far
+    let targetData = null;
+    let length = pagination.data.length;
+    for (let i = 0; i < length; i++) {
+      const { avatar_url, login } = pagination.data[i];
+      if (searchQuery === login) {
+        displayUserFound(avatar_url, login);
+        return;
+      }
+    }
+
+    // User was not found in the pages we've fetched from server so far
+    displayUserNotFound();
   }
 });
+
+function displayUserFound(avatar_url, login) {
+  let userContainer = populateUserContainerNode(avatar_url, login);
+  // Clearn search results and append the results
+  $(".side-navbar__results").html("");
+  $(".side-navbar__results").append(userContainer);
+
+  // Show a new page with users followers and repos
+  let username = "";
+  $(".user-container__more-info").click(event => {
+    username = event.target.id;
+    window.location.href = `./user-info.html?username=${username}`;
+  });
+}
+
+function displayUserNotFound() {
+  // Clearn search results
+  $(".side-navbar__results").html("");
+  $(".side-navbar__results").html(
+    `<p class="not-found-result"> No user with given username found</p>`
+  );
+}
 
 async function getData(url) {
   let res = await fetch(url);
