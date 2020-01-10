@@ -3,7 +3,6 @@ function showRepositories(repos_url) {
   let data = pagination.getNextData();
 
   data.then(res => {
-    console.log(res);
     displayRepositories(res, pagination.pageNumber);
     $(".main-nav__followers").removeClass("main-nav__link--active");
     $(".main-nav__repos").addClass("main-nav__link--active");
