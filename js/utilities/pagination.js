@@ -39,6 +39,16 @@ class Pagination {
       // Get the Link from headers
       let link = res.headers.get("Link");
 
+      // Sometimes response returns no Link header
+      // Here we just return and update the page number accordingly
+      if (!link) {
+        if (!this.lastPage) {
+          this.pageNumber++;
+        }
+        this.lastPage = true;
+        return this.data;
+      }
+
       // Save the current in the urls array
       // this makes possible pagination to the previous page
       this.urls.push(this.currUrl);
