@@ -110,6 +110,56 @@ body {
   background-color: #eceff1;
 }
 
+#side-navbar__select {
+  width: 100%;
+  font-size: 1.4rem;
+  border: 2px solid #607d8b;
+}
+
+#side-navbar__select:focus {
+  outline: none;
+}
+
+.side-navbar__select-option {
+  padding: 0.6rem 1rem;
+}
+
+.search-user-btn {
+  text-decoration: none;
+  font-size: 1.4rem;
+  background-color: #607d8b;
+  color: #fff;
+  display: block;
+  margin-top: 3rem;
+  text-align: center;
+  padding: 0.6rem 0;
+  border-radius: 0.5rem;
+}
+
+.not-found-result {
+  font-size: 1.3rem;
+  margin-top: 3rem;
+  border-top: 1px solid #b6b8b9;
+  border-bottom: 1px solid #b6b8b9;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* This styles override .user-container styles by modifying it's defaults styles */
+.side-navbar__results .user-container {
+  width: 100%;
+  margin-top: 3rem;
+  border-top: 1px solid #b6b8b9;
+  border-bottom: 1px solid #b6b8b9;
+}
+
+.side-navbar__results .user-container__more-info {
+  background-color: #607d8b;
+  color: #fff;
+  padding: 0.6rem 1rem;
+}
+/* styles that override .user-container styles end here*/
+
 /* Class to slide an element from left */
 .slide-from-left {
   transform: translateX(0%);
@@ -205,7 +255,9 @@ body {
   margin-right: 1rem;
 }
 
-.page-numbers {
+.page-numbers,
+.no-followers,
+.no-repos {
   font-weight: bold;
   font-size: 1.4rem;
 }
@@ -257,5 +309,22 @@ body {
   .main .prev-next-container {
     width: 94%;
     margin: 3rem auto 1rem auto;
+  }
+
+  .side-navbar__results .user-container {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 378px) {
+  .side-navbar__results .user-container {
+    display: block;
+    padding-bottom: 1rem;
+  }
+
+  .side-navbar__results .user-container__more-info {
+    display: block;
+    margin-top: 1rem;
+    width: 7.25rem;
   }
 }

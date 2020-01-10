@@ -41,9 +41,17 @@
                 <span class="side-navbar__close-icon"><i class="fas fa-times-circle"></i></span>
 
                 <input type="text" name="search-input" id="side-navbar__search-input" placeholder="Username" />
+
+                <select id="side-navbar__select">
+                    <option value="all-users" class="side-navbar__select-option">From all users</option>
+                    <option value="curr-list" class="side-navbar__select-option">From current list</option>
+                </select>
+
+                <a href="" class="search-user-btn">Search</a>
+
+                <div class="side-navbar__results"></div>
             </div>
-        </div>
-        <!-- side-navbar ends here-->
+        </div> <!-- side-navbar ends here-->
         <div class="side-navbar__big-shadow--onVisible"></div>
     </header>
 
@@ -82,8 +90,9 @@
 
     <!-- Local JS files -->
     <script src="./js/utilities/pagination.js"></script>
-    <script src="./js/index.js"></script>
+    <script src="./js/utilities/create-user-container.js"></script>
     <script src="./js/users.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>

@@ -6,31 +6,53 @@
 
 class Pagination {
   constructor(url) {
-    this.nextUrl = url; // Every time we make a call to the api, we use nextUrl
+    this.currUrl = url;
+    this.nextUrl = ""; // Every time we make a call to the api, we use nextUrl
     this.urls = [];
     this.pageNumber = 0;
+    this.lastPage = false;
   }
 
   getNextData() {
     let data = async () => {
-      let res = await fetch(this.nextUrl);
+      // Do not update curr url in first call ( this.nextUrl = "")
+      let res = null;
+      if (this.nextUrl === "") res = await fetch(this.currUrl);
+      else {
+        this.currUrl = this.nextUrl;
+        res = await fetch(this.currUrl);
+      }
+
+      let response = await res.json();
+      console.log(response);
+
+      // If no followers of repos, return a promise with empty array
+      if (response.length == 0) {
+        let promise = new Promise(function(resolve, reject) {
+          resolve([]);
+        });
+        return promise;
+      }
 
       // Get the Link from headers
       let link = res.headers.get("Link");
 
       // Save the current in the urls array
       // this makes possible pagination to the previous page
-      this.urls.push(this.nextUrl);
+      this.urls.push(this.currUrl);
+
+      // Update page number
+      this.pageNumber++;
+
+      // Sets the last page flag to true if current results are the last results in the server
+      if (this.parseLink(link) == this.nextUrl) this.lastPage = true;
 
       // Update the nextUrl to hold the url of the next 8 data objects
       // this makes possible pagination to the next page
       this.nextUrl = this.parseLink(link);
 
-      // Update the page number
-      this.pageNumber++;
-
       // Return the data
-      return await res.json();
+      return response;
     };
 
     return data();
@@ -45,6 +67,9 @@ class Pagination {
 
     // Now we get the element that has the rel=next
     let element = linkArray.filter(el => el.includes('rel="next"'))[0];
+
+    // If we're in the last page, nextUrl is not changed
+    if (!element) return this.nextUrl;
 
     // Up to this point, element should be `<next_url>; rel="next"`;
     // Remove < and > in element

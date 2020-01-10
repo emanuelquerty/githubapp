@@ -51,6 +51,8 @@
   border-bottom: 2px solid #263238;
 }
 
+/******************* Followers page styles start here *********************/
+
 .follower-box {
   padding: 0.6rem;
   border-top: 1.4px solid #d3d5d6;
@@ -69,6 +71,40 @@
   font-weight: bold;
 }
 
+/******************* Repositories page styles start here *********************/
+.repos-page {
+  display: none;
+}
+.repos-table {
+  width: 100%;
+  max-width: 100%;
+  font-size: 1.4rem;
+  border-collapse: collapse;
+}
+
+.repos-table__header-row {
+  background-color: #263238;
+  color: #fff;
+}
+
+.repos-table__header,
+.repos-table__data {
+  padding: 1.6rem 0;
+  width: 50%;
+}
+
+.repos-table__data-row {
+  border-bottom: 1.4px solid #d3d5d6;
+}
+
+.repos-table__data {
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+/******************* Media Queries start here *********************/
+
 @media screen and (max-width: 702px) {
   .main {
     padding: 3rem 0 3rem 4rem;
@@ -85,7 +121,7 @@
   .main {
     padding: 3rem 0;
   }
-  .main__user-info-table,
+
   .main-inner-wrapper {
     width: 100%;
   }
@@ -98,5 +134,20 @@
 
   .main .prev-next-container {
     margin: 4rem 0 2rem 0;
+  }
+}
+/* 
+@media screen and (max-width: 325px) {
+  .repos-table {
+    font-size: 1.2rem;
+  }
+  .repos-table__data {
+    font-size: 1.2rem;
+  }
+} */
+
+@media screen and (max-width: 272px) {
+  html {
+    font-size: 45%; /* 62.5% means 1rem = 10px instead of the default 1rem = 16px */
   }
 }
