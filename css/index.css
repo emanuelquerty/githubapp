@@ -332,3 +332,9 @@ body {
     width: 7.25rem;
   }
 }
+
+@media screen and (max-width: 272px) {
+  html {
+    font-size: 45%; /* 62.5% means 1rem = 10px instead of the default 1rem = 16px */
+  }
+}
