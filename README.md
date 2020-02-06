@@ -11,3 +11,5 @@
 - HTML, CSS, Javascript/JQuery, font awesome for icons, google fonts for roboto font, and the GitHub Api
 
 - App is responsive (no css library/frameword used for responsiveness)
+
+# APP URL: https://emanuelquerty.github.io/githubapp/
