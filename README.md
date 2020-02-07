@@ -8,7 +8,7 @@
 
 # Techonogies used:
 
-- HTML, CSS, Javascript/JQuery, font awesome for icons, google fonts for roboto font, and the GitHub Api
+- HTML, CSS, Javascript/JQuery, font awesome for icons, google fonts for roboto font, and of course, the GitHub Api
 
 - App is responsive (no css library/frameword used for responsiveness)
 
