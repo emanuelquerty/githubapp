@@ -30,7 +30,7 @@ class Pagination {
       // console.log(response);
       // If no followers of repos, return a promise with empty array
       if (response.length == 0) {
-        let promise = new Promise(function(resolve, reject) {
+        let promise = new Promise(function (resolve, reject) {
           resolve([]);
         });
         return promise;
@@ -78,7 +78,7 @@ class Pagination {
     let linkArray = link.split(",");
 
     // Now we get the element that has the rel=next
-    let element = linkArray.filter(el => el.includes('rel="next"'))[0];
+    let element = linkArray.filter((el) => el.includes('rel="next"'))[0];
 
     // If we're in the last page, nextUrl is not changed
     if (!element) return this.nextUrl;
@@ -96,11 +96,8 @@ class Pagination {
   // Sets the next url to be the previous url when we click the prev button
   // This makes possible to navigate back to the previous 8 data objects
   setNextUrl() {
-    // Get the url to fetch the previous 8 data objects
-    // If this is the first page, we do nothing
-    if (this.urls.length == 1) {
-      return false;
-    }
+    // If this is the first page, there is no previous page.
+    if (this.urls.length == 1) return false;
 
     // We have at least one previous page, so we get the previous page
     let prevUrl = this.urls[this.urls.length - 2];
