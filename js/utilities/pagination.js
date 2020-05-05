@@ -96,8 +96,11 @@ class Pagination {
   // Sets the next url to be the previous url when we click the prev button
   // This makes possible to navigate back to the previous 8 data objects
   setNextUrl() {
-    // If this is the first page, there is no previous page.
-    if (this.urls.length == 1) return false;
+    // Get the url to fetch the previous 8 data objects
+    // If this is the first page, we do nothing
+    if (this.urls.length == 1) {
+      return false;
+    }
 
     // We have at least one previous page, so we get the previous page
     let prevUrl = this.urls[this.urls.length - 2];
