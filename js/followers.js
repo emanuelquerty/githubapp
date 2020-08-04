@@ -6,7 +6,7 @@ function showFollowers(followers_url) {
   // Instatiate pagination for followers
   let pagination1 = new Pagination(`${followers_url}?per_page=8&page=1`);
   let data = pagination1.getNextData();
-  data.then(followers => {
+  data.then((followers) => {
     displayFollowers(followers, pagination1.pageNumber);
     $(".main-nav__followers").addClass("main-nav__link--active");
 
@@ -16,7 +16,7 @@ function showFollowers(followers_url) {
       if (pagination1.lastPage) return;
 
       data = pagination1.getNextData();
-      data.then(followers => {
+      data.then((followers) => {
         displayFollowers(followers, pagination1.pageNumber);
         $(".main-nav__followers").addClass("main-nav__link--active");
       });
@@ -29,7 +29,7 @@ function showFollowers(followers_url) {
 
       if (pagination1.setNextUrl()) {
         data = pagination1.getNextData();
-        data.then(followers => {
+        data.then((followers) => {
           displayFollowers(followers, pagination1.pageNumber);
           $(".main-nav__followers").addClass("main-nav__link--active");
         });
@@ -44,46 +44,65 @@ function showFollowers(followers_url) {
 
 // Display all followers
 function displayFollowers(followers, pageNumber) {
+  // let docFrag = document.createDocumentFragment();
+  // for (let i = 0; i < followers.length; i++) {
+  //   const { avatar_url, login } = followers[i];
+  //   let followerNode = populateFolloweNode(avatar_url, login);
+  //   docFrag.appendChild(followerNode);
+  // }
+
+  // // Only update page server returned data
+  // if (followers.length !== 0) {
+  //   $(".followers-page .page1").html("");
+  //   $(".followers-page .page1").prepend(docFrag);
+  //   $(".current-page").html(pageNumber);
+  // } else {
+  //   $(".followers-page .prev-next-container").hide();
+  //   $(".followers-page").prepend(
+  //     `<p class="no-followers"> User has no followers</p>`
+  //   );
+  // }
   let docFrag = document.createDocumentFragment();
   for (let i = 0; i < followers.length; i++) {
-    const { avatar_url, login } = followers[i];
-    let followerNode = populateFolloweNode(avatar_url, login);
-    docFrag.appendChild(followerNode);
+    const { login, avatar_url } = followers[i];
+    let userContainerNode = populateUserContainerNode(avatar_url, login);
+    docFrag.appendChild(userContainerNode);
   }
 
-  // Only update page server returned data
-  if (followers.length !== 0) {
-    $(".followers-page .page1").html("");
-    $(".followers-page .page1").prepend(docFrag);
-    $(".current-page").html(pageNumber);
-  } else {
-    $(".followers-page .prev-next-container").hide();
-    $(".followers-page").prepend(
-      `<p class="no-followers"> User has no followers</p>`
-    );
-  }
+  document.querySelector(".page1").innerHTML = "";
+  document.querySelector(".page1").prepend(docFrag);
+
+  // Display the current page
+  $(".current-page").html(pageNumber);
+
+  // Show a new page with users followers and repos
+  let username = "";
+  $(".user-container__more-info").click((event) => {
+    username = event.target.id;
+    window.location.href = `./user-info.html?username=${username}`;
+  });
 }
 
 // insert text in the node
-function populateFolloweNode(avatar_url, username) {
-  let followersDiv = getFollowerNodeFromTemplate();
+// function populateFolloweNode(avatar_url, username) {
+//   let followersDiv = getFollowerNodeFromTemplate();
 
-  followersDiv.querySelector(".follower-avatar-image").src = avatar_url;
-  followersDiv.querySelector(".follower-name").innerHTML = username;
+//   followersDiv.querySelector(".follower-avatar-image").src = avatar_url;
+//   followersDiv.querySelector(".follower-name").innerHTML = username;
 
-  return followersDiv;
-}
+//   return followersDiv;
+// }
 
-// Creates a follower node from template
-function getFollowerNodeFromTemplate() {
-  // Get the template element
-  let template = document.querySelectorAll("template")[1];
+// // Creates a follower node from template
+// function getFollowerNodeFromTemplate() {
+//   // Get the template element
+//   let template = document.querySelectorAll("template")[1];
 
-  // Get the div element from the template
-  let followersElement = template.content.querySelector("div");
+//   // Get the div element from the template
+//   let followersElement = template.content.querySelector("div");
 
-  // Create a new node based on the template
-  let followersNode = document.importNode(followersElement, true);
+//   // Create a new node based on the template
+//   let followersNode = document.importNode(followersElement, true);
 
-  return followersNode;
-}
+//   return followersNode;
+// }

@@ -6,7 +6,7 @@ let pagination = new Pagination(
   "https://api.github.com/users?per_page=8&since=0"
 );
 let data = pagination.getNextData();
-data.then(res => {
+data.then((res) => {
   // Display list of users
   displayUsers(res, pagination.pageNumber);
 
@@ -16,7 +16,7 @@ data.then(res => {
     if (pagination.lastPage) return;
 
     data = pagination.getNextData();
-    data.then(res => {
+    data.then((res) => {
       // Display list of users
       displayUsers(res, pagination.pageNumber);
     });
@@ -29,7 +29,7 @@ data.then(res => {
 
     if (pagination.setNextUrl()) {
       data = pagination.getNextData();
-      data.then(res => {
+      data.then((res) => {
         // Display list of users
         displayUsers(res, pagination.pageNumber);
       });
@@ -58,7 +58,7 @@ function displayUsers(users, pageNumber) {
 
   // Show a new page with users followers and repos
   let username = "";
-  $(".user-container__more-info").click(event => {
+  $(".user-container__more-info").click((event) => {
     username = event.target.id;
     window.location.href = `./user-info.html?username=${username}`;
   });
