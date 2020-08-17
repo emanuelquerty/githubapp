@@ -12,4 +12,4 @@
 
 - HTML, CSS, Javascript/JQuery, font awesome for icons, google fonts for roboto font, and of course, the GitHub Api
 
-## APP URL: https://emanuelquerty.github.io/githubapp/
+### APP URL: https://emanuelquerty.github.io/githubapp/
